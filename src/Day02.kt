@@ -1,11 +1,11 @@
 fun main() = day(2) {
-    fun List<String>.stringToIntPairs() =
-        map { line -> line.split(' ').let { it[0] to it[1].toInt() } }
+    fun stringToIntPairs() =
+        inputLines.map { line -> line.split(' ').let { it[0] to it[1].toInt() } }
 
     part1 {
         var horizontal = 0; var depth = 0
 
-        inputLines.stringToIntPairs().forEach { (action, x) ->
+        stringToIntPairs().forEach { (action, x) ->
             when (action) {
                 "forward" -> horizontal += x
                 "down" -> depth += x
@@ -19,7 +19,7 @@ fun main() = day(2) {
     part2 {
         var horizontal = 0; var depth = 0; var aim = 0
 
-        inputLines.stringToIntPairs().forEach { (action, x) ->
+        stringToIntPairs().forEach { (action, x) ->
             when (action) {
                 "forward" -> {
                     horizontal += x
