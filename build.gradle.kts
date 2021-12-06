@@ -11,6 +11,13 @@ dependencies {
 }
 
 tasks {
+    compileJava {
+        options.release.set(17)
+    }
+    compileKotlin {
+        kotlinOptions.jvmTarget = "17"
+    }
+
     sourceSets {
         main {
             java.srcDirs("src")
@@ -21,4 +28,8 @@ tasks {
     wrapper {
         gradleVersion = "7.3"
     }
+}
+
+kotlin.sourceSets.all {
+    languageSettings.optIn("kotlin.RequiresOptIn")
 }
