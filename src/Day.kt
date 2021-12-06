@@ -12,8 +12,8 @@ fun day(number: Int, builder: Day.() -> Unit) {
 class Day(private val number: Int) {
     private fun inputFileName(extra: String = "") = "Day${number.toString().padStart(2, '0')}${extra}.txt"
 
-    lateinit var input: String
-    val inputLines get() = input.lines()
+    var inputString: String = ""
+    val inputLines get() = inputString.lines()
     val inputInts get() = inputLines.map { it.toInt() }
 
     private var part1: (() -> Any?)? = null
@@ -61,11 +61,11 @@ class Day(private val number: Int) {
         terminal.println(TextColors.gray("Running against tests..."))
         println()
 
-        input = this::class.java.getResourceAsStream(inputFileName("_test"))!!.bufferedReader().readText()
+        inputString = this::class.java.getResourceAsStream(inputFileName("_test"))!!.bufferedReader().readText()
         testPart("part1", part1, expectPart1)
         testPart("part2", part2, expectPart2)
 
-        input = this::class.java.getResourceAsStream(inputFileName())!!.bufferedReader().readText()
+        inputString = this::class.java.getResourceAsStream(inputFileName())!!.bufferedReader().readText()
         println()
         terminal.println(TextColors.gray("Running against real input..."))
         println()

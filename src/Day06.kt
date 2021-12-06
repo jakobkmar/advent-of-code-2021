@@ -1,5 +1,5 @@
 fun main() = day(6) {
-    fun resolveInput() = input.split(',').groupBy { it.toLong() }.mapValues { it.value.size.toLong() }
+    fun resolveInput() = inputString.split(',').groupBy { it.toLong() }.mapValues { it.value.size.toLong() }
 
     fun model(days: Int, table: Map<Long, Long> = resolveInput()): Long {
         if (days == 0) return table.map { it.value }.sum()
