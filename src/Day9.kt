@@ -1,6 +1,6 @@
 fun main() = day(9) {
     class Board {
-        val lines: List<List<Int>> = inputLines.map { it.map { it.digitToInt() } }
+        val lines: List<List<Int>> = inputLines.map { line -> line.map { it.digitToInt() } }
 
         val lowPoints = buildList {
             lines.forEachIndexed { lineIndex, line ->
